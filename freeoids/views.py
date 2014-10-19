@@ -1,5 +1,6 @@
 import flask
 import flask_wtf
+import wtforms
 
 from freeoids import app
 from freeoids import backend
@@ -7,6 +8,7 @@ from freeoids import backend
 
 class RequestForm(flask_wtf.Form):
     recaptcha = flask_wtf.RecaptchaField()
+    comment = wtforms.TextField('Contact data (optional)', [wtforms.validators.Length(max=64)])
 
 
 @app.route("/")
@@ -29,7 +31,7 @@ def assignment():
     if not use_recaptcha:
         del form.recaptcha
 
-    new_assignment = backend.assign_oid()
+    new_assignment = backend.assign_oid(form.comment.data)
     if not form.validate_on_submit():
         return flask.redirect(flask.url_for('index'))
     return flask.render_template('assignment.html', assignment=new_assignment)
