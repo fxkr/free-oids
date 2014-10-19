@@ -21,8 +21,6 @@ def assign_oid(comment="", prefix_str=None, path=None):
     next_free_node = 0
     most_recent_assignment = None
 
-    escaped_comment = comment.translate(None, "\b\r\t\n").strip()
-
     with open(path, 'ab') as wf, util.fsyncing(wf), util.flocking(wf), util.flushing(wf),\
          open(path, 'rb') as rf:
 
@@ -47,7 +45,7 @@ def assign_oid(comment="", prefix_str=None, path=None):
         csv_writer.writerow([
             datetime.datetime.now().isoformat().encode("utf-8"),
             newly_assigned_prefix_str.encode("utf-8"),
-            escaped_comment.encode("utf-8")
+            comment.strip().encode("utf-8")
         ])
 
     return newly_assigned_prefix_str
