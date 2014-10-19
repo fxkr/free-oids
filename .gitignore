@@ -6,3 +6,6 @@
 *.pyc
 /.env
 
+/config.py
+/assignments.db
+

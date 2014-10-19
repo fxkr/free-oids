@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Free Object Identifiers!</h1>
+<p class="lead">
+  Object Identifiers (OID) are used to name objects.<br>
+  OIDs consist of a node in a hierarchically-assigned namespace.
+</p>
+<p class="lead">
+  We'll give you an OID prefix for free.<br>
+  You can use it for whatever you want.<br>
+  And you don't need to register.
+</p>
+<p>
+  <form role="form" action="{{ url_for('assignment') }}" method="POST">
+    <button type="submit" class="btn btn-default btn-lg btn-success">New prefix</button>
+  </form>
+</p>
+{% endblock %}

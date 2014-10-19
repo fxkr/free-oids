@@ -1,0 +1,13 @@
+body {
+  padding-top: 50px;
+}
+
+.freeoids-main {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.freeoids-assigned-oid {
+  font-size: 200%;
+}
+
