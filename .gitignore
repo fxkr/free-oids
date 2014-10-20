@@ -9,3 +9,8 @@
 /config.py
 /assignments.db
 
+/freeoids/static/css/bootstrap*
+/freeoids/static/fonts/glyphicons*
+/freeoids/static/js/bootstrap*
+/freeoids/static/js/jquery*
+
