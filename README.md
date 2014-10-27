@@ -3,6 +3,20 @@
 * Author: `Felix Kaiser <felix.kaiser@fxkr.net>`
 * License: MIT license
 
+[Object Identifiers (OIDs)][OID] are used to name objects.
+OIDs consist of a node in a hierarchically-assigned namespace.
+They are mostly used in [SNMP] and [LDAP].
+
+This is a webservice that allows users to get OID prefixes assigned easily.
+If you need an OID prefix, you can use our instance:
+
+http://oid.entropia.de/
+
+[OID]: https://en.wikipedia.org/wiki/Object_identifier
+[SNMP]: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
+[LDAP]: https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol
+
+
 ## How to run
 
 1. Run `fetch_deps.sh` to download the Python and web dependencies
