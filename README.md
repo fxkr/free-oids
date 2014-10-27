@@ -1,4 +1,4 @@
-# OID Selfservice
+# Free OIDs!
 
 * Author: `Felix Kaiser <felix.kaiser@fxkr.net>`
 * License: MIT license
