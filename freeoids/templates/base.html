@@ -21,6 +21,10 @@
         {% block content %}{% endblock %}
       </div>
     </div>
+    <center>
+      Powered by <a href="https://github.com/fxkr/free-oids">free-oids</a>. Fork me :-)<br>
+      Assignments are within the prefix: {{ config["ASSIGNMENT_PREFIX"] }}
+    </center>
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   </body>
