@@ -10,7 +10,7 @@ They are mostly used in [SNMP] and [LDAP].
 This is a webservice that allows users to get OID prefixes assigned easily.
 If you need an OID prefix, you can use our instance:
 
-http://oid.entropia.de/
+https://oid.entropia.de/
 
 [OID]: https://en.wikipedia.org/wiki/Object_identifier
 [SNMP]: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
