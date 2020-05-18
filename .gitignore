@@ -1,0 +1,12 @@
+*.bak
+*.swp
+*.tmp
+*~
+
+.terraform
+lambda.zip
+*.tfstate
+*.tfstate.backup
+
+config.tfvars
+terraform.tfvars

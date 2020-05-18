@@ -1,0 +1,5 @@
+oid_prefix = "1.2.3.4.5"
+
+recaptcha_secret = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZABCD"
+
+zone_id = "ABCDEFGHIJKLMN"
