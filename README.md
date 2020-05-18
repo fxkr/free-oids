@@ -9,9 +9,12 @@ OIDs consist of a node in a hierarchically-assigned namespace.
 They are mostly used in [SNMP] and [LDAP].
 
 This is a webservice that allows users to get OID prefixes assigned easily.
-If you need an OID prefix, you can use our instance:
+If you need an OID prefix, you can use our instance at https://oid.entropia.de/.
 
-https://oid.entropia.de/
+<a href="https://oid.entropia.de/">
+  <img src="screenshots/landing.png" width="400">
+  <img src="screenshots/assignment.png" width="400">
+</a>
 
 The first version, in 2014, was made with Python, Flask and a widely used [NoSQL database](https://en.wikipedia.org/w/index.php?title=CSV_file).
 The code is still available in the [v1](https://github.com/fxkr/free-oids/tree/v1) branch.
