@@ -14,6 +14,7 @@ If you need an OID prefix, you can use our instance:
 https://oid.entropia.de/
 
 The first version, in 2014, was made with Python, Flask and a widely used [NoSQL database](https://en.wikipedia.org/w/index.php?title=CSV_file).
+The code is still available in the [v1](https://github.com/fxkr/free-oids/tree/v1) branch.
 This is the second version, based on Amazon AWS.
 For design and implementation details, see [HACKING.md](./HACKING.md).
 
