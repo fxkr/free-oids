@@ -16,6 +16,15 @@ prefix = os.environ['FREE_OIDS_PREFIX']
 recaptcha_secret = os.environ['FREE_OIDS_RECAPTCHA_SECRET']
 
 
+def respond(status, obj):
+    return {
+        "statusCode": status,
+        "headers": {"Content-Type": "application/json"},
+        "body": json.dumps(obj),
+        "isBase64Encoded": False,
+    }
+
+
 def is_captcha_valid(event, context):
 
         value = json.loads(event['body']).get('captcha')
@@ -98,36 +107,34 @@ def assign_oid(prefix, comment):
 
 
 
-def lambda_handler(event, context):
+def lambda_handler_wrapped(event, context):
 
     if event.get('httpMethod') == 'PUT' and event.get('path') == '/api/oid':
 
         if len(event['body']) > 65536:
-            return False
+            return respond(400, {'error': 'body too long'})
 
         body = json.loads(event['body'])
 
         if not is_captcha_valid(event, context):
-            return {
-                'statusCode': 400,
-                'body': json.dumps({'error': 'bad captcha'})
-            }
+            return respond(400, {'error': 'bad captcha'})
 
-        return {
-            'statusCode': 200,
-            'body': json.dumps({'oid': assign_oid(prefix, body['comment']), 'prefix': prefix})
-        }
+        return respond(200, {'oid': assign_oid(prefix, body['comment']), 'prefix': prefix})
 
     elif event.get('httpMethod') == 'GET' and event.get('path') == '/api/oid':
-        return {
-            'statusCode': 200,
-            'body': json.dumps({'prefix': prefix})
-        }
+        return respond(200, {'prefix': prefix})
 
     else:
-        return {
-            'statusCode': 400,
-            'body': json.dumps({'error': 'bad request'})
-        }
+        return respond(400, {'error': 'bad request'})
 
+
+
+def lambda_handler(event, context):
+    # Catch any exception and return gracefully
+    try:
+        response = lambda_handler_wrapped(event, context)
+        return response
+    except Exception as e:
+        print(e)
+        return respond(400, {'error': 'bad request (caught in lambda_handler)'})
 
