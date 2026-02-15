@@ -102,7 +102,7 @@ def lambda_handler(event, context):
 
     if event.get('httpMethod') == 'PUT' and event.get('path') == '/api/oid':
 
-        if len(event['body']) > 512:
+        if len(event['body']) > 65536:
             return False
 
         body = json.loads(event['body'])
